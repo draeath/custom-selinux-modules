@@ -1,0 +1,12 @@
+# RHEL 9.1 2022-11-16
+
+module fix-platform-python-kpatch 1.0;
+
+require {
+	type var_lib_t;
+	type rhsmcertd_t;
+	class dir read;
+}
+
+#============= rhsmcertd_t ==============
+allow rhsmcertd_t var_lib_t:dir read;

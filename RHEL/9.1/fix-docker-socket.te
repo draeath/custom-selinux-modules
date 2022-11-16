@@ -1,0 +1,12 @@
+# docker-ce-20.10.21-3.el8.x86_64 2022-11-16
+
+module fix-docker-socket 1.0;
+
+require {
+	type container_var_run_t;
+	type insights_client_t;
+	class sock_file write;
+}
+
+#============= insights_client_t ==============
+allow insights_client_t container_var_run_t:sock_file write;

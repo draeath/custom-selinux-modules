@@ -1,0 +1,15 @@
+# RHEL 9.1 2022-11-16
+
+module fix-semanage 1.0;
+
+require {
+	type semanage_store_t;
+	type insights_client_t;
+	class file read;
+	class dir write;
+	class netlink_audit_socket create;
+}
+
+#============= insights_client_t ==============
+allow insights_client_t self:netlink_audit_socket create;
+allow insights_client_t semanage_store_t:dir write;
